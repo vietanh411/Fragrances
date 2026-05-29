@@ -46,10 +46,10 @@ export const siteConfig = {
 
   //  ⚠ Replace these placeholders with your real handles before accepting orders.
   payments: [
-    { method: 'Venmo', handle: '@your-venmo', link: 'https://venmo.com/u/your-venmo', qr: '' },
-    { method: 'PayPal', handle: 'you@example.com', link: 'https://paypal.me/yourhandle', qr: '' },
-    { method: 'Zelle', handle: 'your-zelle-email-or-phone', link: '', qr: '' },
-    { method: 'CashApp', handle: '$yourcashtag', link: 'https://cash.app/$yourcashtag', qr: '' },
+    { method: 'Venmo', handle: '@lebip411', link: 'https://venmo.com/u/lebip411', qr: '' },
+    { method: 'PayPal', handle: 'vanhdude@gmail.com', link: 'https://paypal.me/peepeepoo123', qr: '' },
+    { method: 'Zelle', handle: '405-723-6573', link: '', qr: '' },
+    { method: 'CashApp', handle: '$lebip411', link: 'https://cash.app/$lebip411', qr: '' },
   ] satisfies PaymentMethod[],
 } as const;
 
