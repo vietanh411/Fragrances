@@ -1,0 +1,66 @@
+// AUTO-GENERATED fallback snapshot of the Google Sheet (a recent successful capture).
+// Used ONLY when the live fetch fails, so the storefront is never blank.
+// To refresh: re-download the CSV to tests/fixtures/sample-sheet.csv, then run
+//   node scripts/gen-fallback.mjs
+export const FALLBACK_CSV = `🧴 VA DECANTS 🧴,,,,,,,,
+,,,,,,,,
+✈️   SHIPPING: ADD $6 FOR ORDERS UNDER $50. FREE SHIPPING OVER $50.,,,,,,,,
+🎁   BUNDLE PRICING: ASK ABOUT BUNDLES.,,,,,,,,
+"📝   NOTES: 2ML SAMPLES COME IN PLASTIC BOTTLES. 5ML, 10ML, 30ML COME IN THICK GLASS BOTTLES.
+                      ZELLE, PAYPAL, VENMO, CASHAPP ARE ACCEPTED.",,,,,,,,
+"📱    CONTACT: https://www.facebook.com/viet.anh.nguyen.429130
+                           vanhnguyenn411@gmail.com",,,,,,,,
+── NICHE ──,,,,,,,,
+Brand,Name,Gender,Available?,2ml,5ml,10ml,30ml,Fragrantica
+27 87,Per Se,Unisex,Yes,"$4,00","$7,00",,,🔗 Link
+Alfred Ritchy,Nassau,Unisex,Yes,"$5,00","$9,00",,,🔗 Link
+Arabian Oud,Mukhallat Dewan Al Sharq,Male,Yes,"$15,00","$35,00",,,🔗 Link
+Arabian Oud,Royal Oud,Male,Yes,"$15,00","$35,00",,,🔗 Link
+BDK Parfums,Gris Charnel Extrait,Unisex,Yes,"$7,00","$15,00",,,🔗 Link
+DedCool,Mochi Milk,Unisex,Yes,"$5,00","$10,00",,,🔗 Link
+Etat Libre d'Orange,Above the Waves,Unisex,Yes,"$4,00","$8,00",,,🔗 Link
+Etat Libre d'Orange,You Or Someone Like You,Unisex,Yes,"$4,00","$8,00",,,🔗 Link
+Fugazzi,Passionfroudh,Unisex,Yes,"$7,00","$15,00",,,🔗 Link
+Goldfield & Banks Australia,Pacific Rock Moss,Unisex,Yes,"$6,00","$11,00","$18,00","$46,00",🔗 Link
+Goldfield & Banks Australia,Ingenious Ginger,Unisex,Yes,"$6,00","$11,00","$18,00","$46,00",🔗 Link
+Heretic Parfum,Dirty Hinoki,Unisex,Yes,"$4,00","$8,00",,,🔗 Link
+Juliette Has A Gun,Juliette,Female,Yes,"$5,00","$10,00",,,🔗 Link
+Juliette Has A Gun,Not A Perfume,Female,Yes,"$5,00","$10,00","$16,00","$40,00",🔗 Link
+Librery Parfum,Hot Sand,Unisex,Yes,"$7,00","$15,00",,,🔗 Link
+Liis,Floating,Female,Yes,"$4,00","$8,00",,,🔗 Link
+Maison de L'Asie,Nanyang,Unisex,Yes,"$4,00","$8,00",,,🔗 Link
+Mancera,Amore Caffè,Unisex,Yes,"$5,00","$9,00","$14,00","$34,00",🔗 Link
+Memo Paris,Madurai,Unisex,Yes,"$4,00","$8,00",,,🔗 Link
+Montale,Intense Cafe,Unisex,Yes,"$5,00","$10,00","$16,00",,🔗 Link
+Nishane,Wulong Cha X,Unisex,Yes,"$7,00","$15,00","$25,00",,🔗 Link
+Obvious,Scoville,Unisex,Yes,"$4,00","$6,00","$8,00","$16,00",🔗 Link
+ROAN,Current Culture,Unisex,Yes,"$4,00","$8,00",,,🔗 Link
+Roja Dove,Elysium Pour Femme,Female,Yes,"$6,00","$13,00",,,🔗 Link
+Room 1015,Wavechild,Unisex,Yes,"$4,00","$8,00",,,🔗 Link
+Scents of Wood,Vanilla in Bourbon,Unisex,Yes,"$4,00","$8,00",,,🔗 Link
+Veronique Gabai,Vert Désir,Unisex,Yes,"$4,00","$8,00",,,🔗 Link
+WA:IT,Haru,Unisex,Yes,"$6,00","$13,00","$21,00","$55,00",🔗 Link
+,,,,,,,,
+── DESIGNER ──,,,,,,,,
+Brand,Name,Gender,Available?,2ml,5ml,10ml,30ml,Fragrantica
+Acqua di Parma,Buongiorno,Male,Yes,"$4,00","$8,00",,,🔗 Link
+Acqua di Parma,Fico di Amalfi La Riserva,Unisex,Yes,"$4,00","$8,00",,,🔗 Link
+Estée Lauder,Infinite Sky,Unisex,Yes,"$5,00","$9,00",,,🔗 Link
+Guerlain,Herbes Troublantes,Unisex,Yes,"$9,00","$20,00","$36,00",,🔗 Link
+Jean Paul Gaultier,Le Male Le Parfum,Male,Yes,"$5,00","$10,00","$16,00","$40,00",🔗 Link
+Louis Vuitton,Afternoon Swim,Unisex,Yes,"$9,00","$20,00","$36,00",,🔗 Link
+Louis Vuitton,Imagination,Unisex,Yes,"$9,00","$20,00","$36,00",,🔗 Link
+Louis Vuitton,Le Jour se Lève,Female,Yes,"$8,00","$18,00",,,🔗 Link
+Miu Miu,Fleur de Lait,Female,Yes,"$5,00",,,,🔗 Link
+,,,,,,,,
+── DUPE ──,,,,,,,,
+Brand,Name,Gender,Available?,2ml,5ml,10ml,30ml,Fragrantica
+Afnan,Turathi Blue (Vibrato),Male,Yes,"$4,00","$7,00","$9,00","$19,00",🔗 Link
+Arabiyat Prestige,Marwa (Imagination),Unisex,Yes,"$4,00","$7,00","$10,00","$22,00",🔗 Link
+Julianna's Perfumes,Bad Bitch (Rouge Malachite),Female,Yes,"$4,00","$8,00","$11,00",,
+Lattafa Perfumes,Khamrah,Unisex,Yes,"$4,00","$7,00","$9,00","$19,00",🔗 Link
+Lattafa Perfumes,Opulent Dubai (God of Fire),Unisex,Yes,"$4,00","$7,00","$9,00","$18,00",🔗 Link
+Maison Alhambra,Jean Lowe Azure (Afternoon Swim),Male,Yes,"$4,00","$7,00","$9,00","$18,00",🔗 Link
+PARIS CORNER,Coconut Lagoon (Virgin Island Water),Unisex,Yes,"$4,00","$7,00",,,🔗 Link
+Rayhaan,Aquatica (Virgin Island Water),Male,Yes,"$4,00","$7,00","$9,00","$19,00",🔗 Link
+Soi Parfums,Creamy Dream (Bianco Latte),Unisex,Yes,"$5,00","$10,00","$16,00",,`;
