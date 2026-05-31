@@ -38,10 +38,10 @@ export function Footer() {
         <div>
           <p className="micro-label mb-4">Explore</p>
           <ul className="space-y-2.5 text-sm text-muted">
-            <li><Link href="/catalog" className="transition-colors hover:text-champagne">The Collection</Link></li>
-            <li><Link href="/catalog?category=Niche" className="transition-colors hover:text-champagne">Niche</Link></li>
-            <li><Link href="/catalog?category=Designer" className="transition-colors hover:text-champagne">Designer</Link></li>
-            <li><Link href="/catalog?category=Dupe" className="transition-colors hover:text-champagne">Dupes</Link></li>
+            <li><Link href="/shop" className="transition-colors hover:text-champagne">Shop All</Link></li>
+            <li><Link href="/shop?category=Niche" className="transition-colors hover:text-champagne">Niche</Link></li>
+            <li><Link href="/shop?category=Designer" className="transition-colors hover:text-champagne">Designer</Link></li>
+            <li><Link href="/shop?category=Dupe" className="transition-colors hover:text-champagne">Dupes</Link></li>
             <li><Link href="/about" className="transition-colors hover:text-champagne">About &amp; FAQ</Link></li>
           </ul>
         </div>

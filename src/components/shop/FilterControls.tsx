@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import type { CatalogFilters } from '@/lib/catalog';
+import type { CatalogFilters } from '@/lib/shop';
 import type { Category, Gender, SizeKey } from '@/lib/types';
 import { SIZE_ORDER } from '@/lib/types';
 import { ChevronDownIcon } from '@/components/ui/icons';

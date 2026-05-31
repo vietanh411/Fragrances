@@ -10,7 +10,8 @@
 import { parseCsv } from '@/lib/csv';
 import { parsePrice } from '@/lib/price';
 import { toSlug } from '@/lib/slug';
-import { buildFragranticaUrl, stripParenthetical } from '@/lib/fragrantica';
+import { buildFragranticaUrl, fragranticaImageFromUrl, stripParenthetical } from '@/lib/fragrantica';
+import { FRAGRANTICA_URLS } from '@/lib/fragrantica-data';
 import {
   SIZE_ORDER,
   type Category,
@@ -112,7 +113,13 @@ export function parseProducts(csvText: string): ProductData {
     const sizes: SizeOption[] = [];
     for (const size of SIZE_ORDER) {
       const price = parsePrice(cellByName(row, cols, size));
-      if (price != null) sizes.push({ size: size as SizeKey, price });
+      // Stock currently defaults to 1 per offered size. Later this can be driven
+      // by optional per-size stock columns in the sheet (e.g. "2ml stock").
+      if (price != null) {
+        const stockCell = parsePrice(cellByName(row, cols, `${size} stock`));
+        const stock = stockCell != null ? Math.max(0, Math.round(stockCell)) : 1;
+        sizes.push({ size: size as SizeKey, price, stock });
+      }
     }
 
     if (sizes.length === 0) {
@@ -123,16 +130,25 @@ export function parseProducts(csvText: string): ProductData {
     const inspiredByMatch = name.match(/\(([^)]+)\)\s*$/);
     const inspiredBy = inspiredByMatch ? inspiredByMatch[1].trim() : null;
 
-    // Prefer a real Fragrantica URL column if the owner adds one; else fall back.
+    const baseId = toSlug(brand, name);
+    const knownFragranticaUrl = FRAGRANTICA_URLS[baseId] ?? null;
+
+    // Fragrantica link precedence: sheet "Fragrantica URL" column > our curated
+    // page map > a Google site-search fallback.
     const fragranticaCell = cellByName(row, cols, 'fragrantica url');
     const fragranticaUrl = /^https?:\/\//.test(fragranticaCell)
       ? fragranticaCell
-      : buildFragranticaUrl(brand, stripParenthetical(name));
+      : (knownFragranticaUrl ?? buildFragranticaUrl(brand, stripParenthetical(name)));
 
+    // Image precedence: sheet "Image" column > Fragrantica's CDN image > none.
     const imageCell = cellByName(row, cols, 'image');
-    const imageUrl = /^https?:\/\//.test(imageCell) ? imageCell : null;
+    const imageUrl = /^https?:\/\//.test(imageCell)
+      ? imageCell
+      : knownFragranticaUrl
+        ? fragranticaImageFromUrl(knownFragranticaUrl)
+        : null;
 
-    let id = toSlug(brand, name);
+    let id = baseId;
     if (usedIds.has(id)) {
       let n = 2;
       while (usedIds.has(`${id}-${n}`)) n += 1;

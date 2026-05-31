@@ -38,8 +38,8 @@ export function HeroSection() {
           className="mt-9 flex animate-fade-rise flex-wrap items-center justify-center gap-3"
           style={{ animationDelay: '240ms' }}
         >
-          <Link href="/catalog" className={buttonClasses({ size: 'lg' })}>
-            Explore the Collection
+          <Link href="/shop" className={buttonClasses({ size: 'lg' })}>
+            Shop the Collection
           </Link>
           <Link href="/about" className={buttonClasses({ variant: 'ghost', size: 'lg' })}>
             What&rsquo;s a decant?

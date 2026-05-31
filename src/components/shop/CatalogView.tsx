@@ -2,7 +2,7 @@
 
 import { useMemo, useState } from 'react';
 import type { Product } from '@/lib/types';
-import { filterProducts, type SortKey } from '@/lib/catalog';
+import { filterProducts, type SortKey } from '@/lib/shop';
 import { useUrlFilters } from '@/lib/useUrlFilters';
 import { FilterControls } from './FilterControls';
 import { ProductGrid } from '@/components/product/ProductGrid';

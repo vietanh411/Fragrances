@@ -16,9 +16,17 @@ export function AddToCartForm({ product }: { product: Product }) {
   const [added, setAdded] = useState(false);
 
   const selected = product.sizes.find((s) => s.size === size) ?? product.sizes[0];
+  const stock = selected?.stock ?? 0;
+  const inStock = product.available && stock > 0;
+
+  function handleSize(next: SizeKey) {
+    setSize(next);
+    const nextStock = product.sizes.find((s) => s.size === next)?.stock ?? 1;
+    setQty((q) => Math.min(Math.max(1, q), Math.max(1, nextStock)));
+  }
 
   function handleAdd() {
-    if (!product.available || !selected) return;
+    if (!inStock || !selected) return;
     addItem(product, selected.size, qty);
     setAdded(true);
     setQty(1);
@@ -31,13 +39,20 @@ export function AddToCartForm({ product }: { product: Product }) {
     <div className="space-y-6">
       <div className="space-y-3">
         <p className="micro-label">Select a size</p>
-        <SizeChips options={product.sizes} value={size} onChange={setSize} />
+        <SizeChips options={product.sizes} value={size} onChange={handleSize} />
       </div>
 
       <div className="flex items-end gap-4">
         <div className="space-y-3">
-          <p className="micro-label">Quantity</p>
-          <QuantityStepper value={qty} onChange={setQty} />
+          <div className="flex items-center gap-3">
+            <p className="micro-label">Quantity</p>
+            {inStock && (
+              <span className="text-xs text-muted">
+                In stock: <span className="text-champagne tabular-nums">{stock}</span>
+              </span>
+            )}
+          </div>
+          <QuantityStepper value={qty} onChange={setQty} max={Math.max(1, stock)} />
         </div>
         <div className="ml-auto text-right">
           <p className="text-xs text-muted">{selected?.size} · {qty} × {formatPrice(selected?.price ?? 0)}</p>
@@ -51,10 +66,10 @@ export function AddToCartForm({ product }: { product: Product }) {
         variant={added ? 'solid' : 'gold'}
         size="lg"
         className="w-full"
-        disabled={!product.available}
+        disabled={!inStock}
         onClick={handleAdd}
       >
-        {!product.available ? (
+        {!inStock ? (
           'Sold out'
         ) : added ? (
           <>

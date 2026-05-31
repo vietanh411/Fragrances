@@ -15,3 +15,13 @@ export function buildFragranticaUrl(brand: string, name: string): string {
   const query = `site:fragrantica.com ${brand} ${stripParenthetical(name)}`.trim();
   return `https://www.google.com/search?q=${encodeURIComponent(query)}`;
 }
+
+/**
+ * Derive the Fragrantica product image (fimgs.net CDN) from a perfume page URL.
+ * The trailing number in the URL is the image id, e.g.
+ *   .../Khamrah-75805.html -> https://fimgs.net/mdimg/perfume/375x500.75805.jpg
+ */
+export function fragranticaImageFromUrl(url: string): string | null {
+  const match = url.match(/-(\d+)\.html$/);
+  return match ? `https://fimgs.net/mdimg/perfume/375x500.${match[1]}.jpg` : null;
+}

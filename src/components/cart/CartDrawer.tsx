@@ -35,8 +35,8 @@ export function CartDrawer() {
         <div className="flex flex-1 flex-col items-center justify-center gap-5 px-6 text-center">
           <BagIcon width={36} height={36} className="text-gold-500/50" />
           <p className="text-muted">Your selection is empty — the collection awaits.</p>
-          <Link href="/catalog" onClick={closeCart} className={buttonClasses({ className: 'mt-1' })}>
-            Explore the Collection
+          <Link href="/shop" onClick={closeCart} className={buttonClasses({ className: 'mt-1' })}>
+            Shop the Collection
           </Link>
         </div>
       ) : (

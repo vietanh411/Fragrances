@@ -10,6 +10,8 @@ export interface SizeOption {
   size: SizeKey;
   /** Price in dollars, e.g. 4 for "$4,00". */
   price: number;
+  /** Units available of this fragrance in this size. */
+  stock: number;
 }
 
 export interface Product {

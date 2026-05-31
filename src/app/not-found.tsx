@@ -9,8 +9,8 @@ export default function NotFound() {
       <p className="mt-3 max-w-sm text-muted">
         We couldn&rsquo;t find that page. It may have sold out or moved.
       </p>
-      <Link href="/catalog" className={buttonClasses({ className: 'mt-8' })}>
-        Back to the Collection
+      <Link href="/shop" className={buttonClasses({ className: 'mt-8' })}>
+        Back to the Shop
       </Link>
     </div>
   );

@@ -41,8 +41,8 @@ export default function CartPage() {
       <div className="container-luxe flex min-h-[50vh] flex-col items-center justify-center gap-5 text-center">
         <p className="font-display text-4xl text-champagne">Your selection is empty</p>
         <p className="text-muted">The collection awaits.</p>
-        <Link href="/catalog" className={buttonClasses({ size: 'lg' })}>
-          Explore the Collection
+        <Link href="/shop" className={buttonClasses({ size: 'lg' })}>
+          Shop the Collection
         </Link>
       </div>
     );
@@ -132,7 +132,7 @@ export default function CartPage() {
               Proceed to Checkout
             </Link>
             <Link
-              href="/catalog"
+              href="/shop"
               className="mt-3 block text-center text-xs uppercase tracking-wide text-muted hover:text-champagne"
             >
               Continue browsing

@@ -14,8 +14,8 @@ export default function CheckoutPage() {
       <div className="container-luxe flex min-h-[50vh] flex-col items-center justify-center gap-5 text-center">
         <p className="font-display text-4xl text-champagne">Your cart is empty</p>
         <p className="text-muted">Add a few decants before checking out.</p>
-        <Link href="/catalog" className={buttonClasses({ size: 'lg' })}>
-          Explore the Collection
+        <Link href="/shop" className={buttonClasses({ size: 'lg' })}>
+          Shop the Collection
         </Link>
       </div>
     );

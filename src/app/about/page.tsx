@@ -66,8 +66,8 @@ export default function AboutPage() {
             <a href={`mailto:${siteConfig.contactEmail}`} className={buttonClasses({})}>
               Email us
             </a>
-            <Link href="/catalog" className={buttonClasses({ variant: 'ghost' })}>
-              Explore the Collection
+            <Link href="/shop" className={buttonClasses({ variant: 'ghost' })}>
+              Shop the Collection
             </Link>
           </div>
         </div>

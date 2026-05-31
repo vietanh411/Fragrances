@@ -51,8 +51,8 @@ describe('parseProducts (real sheet fixture)', () => {
   it('parses comma-decimal prices into numbers', () => {
     const perSe = find(data, '27 87', 'Per Se');
     expect(perSe?.sizes).toEqual([
-      { size: '2ml', price: 4 },
-      { size: '5ml', price: 7 },
+      { size: '2ml', price: 4, stock: 1 },
+      { size: '5ml', price: 7, stock: 1 },
     ]);
   });
 
@@ -75,8 +75,30 @@ describe('parseProducts (real sheet fixture)', () => {
     expect(find(data, '27 87', 'Per Se')?.inspiredBy).toBeNull();
   });
 
-  it('builds a fallback fragrantica url for every product', () => {
+  it('links every product to fragrantica (real page or search fallback)', () => {
     expect(data.products.every((p) => p.fragranticaUrl?.includes('fragrantica.com'))).toBe(true);
+  });
+
+  it('uses the real Fragrantica page + CDN photo for a known fragrance', () => {
+    const khamrah = find(data, 'Lattafa Perfumes', 'Khamrah');
+    expect(khamrah?.fragranticaUrl).toBe(
+      'https://www.fragrantica.com/perfume/Lattafa-Perfumes/Khamrah-75805.html',
+    );
+    expect(khamrah?.imageUrl).toBe('https://fimgs.net/mdimg/perfume/375x500.75805.jpg');
+
+    const swim = find(data, 'Louis Vuitton', 'Afternoon Swim');
+    expect(swim?.imageUrl).toBe('https://fimgs.net/mdimg/perfume/375x500.53947.jpg');
+  });
+
+  it('falls back to a search link with no photo for unlisted dupes', () => {
+    const bad = find(data, "Julianna's Perfumes", 'Bad Bitch');
+    expect(bad?.imageUrl).toBeNull();
+    expect(bad?.fragranticaUrl).toContain('google.com/search');
+  });
+
+  it('gives the vast majority of products a real photo', () => {
+    const withPhotos = data.products.filter((p) => p.imageUrl?.includes('fimgs.net')).length;
+    expect(withPhotos).toBeGreaterThanOrEqual(44);
   });
 
   it('generates url-safe slugs, including for apostrophe/accented brands', () => {

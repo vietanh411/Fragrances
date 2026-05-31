@@ -45,7 +45,7 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
       <nav className="mb-8 text-xs text-muted-2" aria-label="Breadcrumb">
         <Link href="/" className="hover:text-paper">Home</Link>
         <span className="mx-2">/</span>
-        <Link href="/catalog" className="hover:text-paper">Collection</Link>
+        <Link href="/shop" className="hover:text-paper">Shop</Link>
         <span className="mx-2">/</span>
         <span className="text-muted">{product.brand}</span>
       </nav>
@@ -65,9 +65,6 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
           <h1 className="mt-2 font-display text-5xl leading-tight text-champagne md:text-6xl">
             {product.name}
           </h1>
-          {product.inspiredBy && (
-            <p className="mt-2 text-base italic text-muted">Inspired by {product.inspiredBy}</p>
-          )}
 
           <div className="mt-4 flex items-center gap-4">
             <GenderPill gender={product.gender} />

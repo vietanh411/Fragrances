@@ -6,7 +6,7 @@ import {
   EMPTY_FILTERS,
   type CatalogFilters,
   type SortKey,
-} from '@/lib/catalog';
+} from '@/lib/shop';
 import type { Category, Gender, SizeKey } from '@/lib/types';
 
 const SORTS: SortKey[] = ['featured', 'price-asc', 'price-desc', 'name', 'brand'];

@@ -1,8 +1,15 @@
 import { describe, it, expect } from 'vitest';
-import { filterProducts, EMPTY_FILTERS, type CatalogFilters } from '@/lib/catalog';
-import type { Product } from '@/lib/types';
+import { filterProducts, EMPTY_FILTERS, type CatalogFilters } from '@/lib/shop';
+import type { Product, SizeKey } from '@/lib/types';
 
-function p(partial: Partial<Product>): Product {
+type LooseSize = { size: SizeKey; price: number; stock?: number };
+
+function p(partial: Omit<Partial<Product>, 'sizes'> & { sizes?: LooseSize[] }): Product {
+  const sizes = (partial.sizes ?? [{ size: '5ml', price: 10 }]).map((s) => ({
+    size: s.size,
+    price: s.price,
+    stock: s.stock ?? 1,
+  }));
   return {
     id: partial.id ?? 'id',
     brand: partial.brand ?? 'Brand',
@@ -10,7 +17,7 @@ function p(partial: Partial<Product>): Product {
     gender: partial.gender ?? 'Unisex',
     category: partial.category ?? 'Niche',
     available: partial.available ?? true,
-    sizes: partial.sizes ?? [{ size: '5ml', price: 10 }],
+    sizes,
     inspiredBy: partial.inspiredBy ?? null,
     fragranticaUrl: null,
     imageUrl: null,

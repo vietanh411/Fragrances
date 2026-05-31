@@ -32,9 +32,6 @@ export function ProductCard({ product, index = 0 }: { product: Product; index?: 
         <h3 className="font-display text-xl leading-tight text-champagne line-clamp-2">
           {product.name}
         </h3>
-        {product.inspiredBy && (
-          <p className="text-[0.72rem] italic text-muted-2">Inspired by {product.inspiredBy}</p>
-        )}
         <div className="mt-auto flex items-center justify-between pt-3">
           <GenderPill gender={product.gender} />
           <span className="font-sans text-sm text-paper tabular-nums">

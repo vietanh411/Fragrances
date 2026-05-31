@@ -9,7 +9,7 @@ const product = (over: Partial<Product>): Product => ({
   gender: 'Unisex',
   category: 'Niche',
   available: true,
-  sizes: [{ size: '5ml', price: 10 }],
+  sizes: [{ size: '5ml', price: 10, stock: 1 }],
   inspiredBy: null,
   fragranticaUrl: null,
   imageUrl: null,

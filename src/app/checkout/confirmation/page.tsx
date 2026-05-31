@@ -27,8 +27,8 @@ export default function ConfirmationPage() {
       <div className="container-luxe flex min-h-[50vh] flex-col items-center justify-center gap-5 text-center">
         <p className="font-display text-4xl text-champagne">No recent order</p>
         <p className="text-muted">Your order details are no longer available on this device.</p>
-        <Link href="/catalog" className={buttonClasses({ size: 'lg' })}>
-          Explore the Collection
+        <Link href="/shop" className={buttonClasses({ size: 'lg' })}>
+          Shop the Collection
         </Link>
       </div>
     );
@@ -73,7 +73,7 @@ export default function ConfirmationPage() {
             <Button variant="ghost" onClick={copyDetails}>
               {copied ? <><CheckIcon width={16} height={16} /> Copied</> : <><CopyIcon width={16} height={16} /> Copy order details</>}
             </Button>
-            <Link href="/catalog" className={buttonClasses({ variant: 'ghost' })}>
+            <Link href="/shop" className={buttonClasses({ variant: 'ghost' })}>
               Continue shopping
             </Link>
           </div>

@@ -23,15 +23,24 @@ const sans = Jost({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://vadecants.com'),
   title: {
     default: `${siteConfig.brandName} — Luxury Fragrance Decants`,
     template: `%s · ${siteConfig.brandName}`,
   },
   description: siteConfig.shortPitch,
+  alternates: { canonical: '/' },
   openGraph: {
     title: `${siteConfig.brandName} — Luxury Fragrance Decants`,
     description: siteConfig.shortPitch,
     type: 'website',
+    url: 'https://vadecants.com',
+    siteName: siteConfig.brandName,
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: `${siteConfig.brandName} — Luxury Fragrance Decants`,
+    description: siteConfig.shortPitch,
   },
 };
 

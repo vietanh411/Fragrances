@@ -31,7 +31,7 @@ export default async function HomePage() {
 
       {featuredList.length > 0 && (
         <section className="container-luxe py-12">
-          <SectionHeading eyebrow="Curated Selection" title="House Favourites" href="/catalog" />
+          <SectionHeading eyebrow="Curated Selection" title="House Favourites" href="/shop" />
           <div className="grid grid-cols-2 gap-4 sm:gap-5 md:grid-cols-4">
             {featuredList.map((p, i) => (
               <ProductCard key={p.id} product={p} index={i} />
@@ -44,12 +44,12 @@ export default async function HomePage() {
         <SectionHeading
           eyebrow={`${products.length} fragrances`}
           title="The Collection"
-          href="/catalog"
+          href="/shop"
           linkLabel="Browse all"
         />
         <ProductGrid products={preview} />
         <div className="mt-12 flex justify-center">
-          <Link href="/catalog" className={buttonClasses({ size: 'lg' })}>
+          <Link href="/shop" className={buttonClasses({ size: 'lg' })}>
             View the full collection
           </Link>
         </div>
