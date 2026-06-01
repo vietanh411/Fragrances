@@ -88,6 +88,7 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
           size,
           unitPrice: option.price,
           qty,
+          imageUrl: product.imageUrl,
         },
       ];
     });

@@ -9,7 +9,7 @@ export function OrderSummary({ items, totals }: { items: CartItem[]; totals: Car
       <ul className="space-y-4">
         {items.map((item) => (
           <li key={`${item.productId}::${item.size}`} className="flex items-center gap-3">
-            <CartThumb brand={item.brand} size={48} />
+            <CartThumb brand={item.brand} imageUrl={item.imageUrl} size={48} />
             <div className="min-w-0 flex-1">
               <p className="truncate text-sm text-paper">{item.name}</p>
               <p className="text-xs text-muted">

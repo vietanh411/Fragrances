@@ -64,7 +64,7 @@ export default function CartPage() {
             const priceChanged = rec?.status === 'price-changed';
             return (
               <li key={`${item.productId}::${item.size}`} className="flex gap-4 py-6">
-                <CartThumb brand={item.brand} size={80} />
+                <CartThumb brand={item.brand} imageUrl={item.imageUrl} size={80} />
                 <div className="flex flex-1 flex-col">
                   <div className="flex items-start justify-between">
                     <div>

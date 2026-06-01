@@ -44,7 +44,7 @@ export function CartDrawer() {
           <ul className="flex-1 divide-y divide-[var(--line)] overflow-y-auto px-5">
             {items.map((item) => (
               <li key={`${item.productId}::${item.size}`} className="flex gap-3 py-4">
-                <CartThumb brand={item.brand} />
+                <CartThumb brand={item.brand} imageUrl={item.imageUrl} />
                 <div className="flex min-w-0 flex-1 flex-col">
                   <div className="flex items-start justify-between gap-2">
                     <div className="min-w-0">
