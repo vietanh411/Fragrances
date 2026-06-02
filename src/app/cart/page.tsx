@@ -96,6 +96,7 @@ export default function CartPage() {
                   <div className="mt-auto flex items-center justify-between pt-4">
                     <QuantityStepper
                       value={item.qty}
+                      max={item.stock}
                       onChange={(q) => updateQty(item.productId, item.size, q)}
                     />
                     <span className="font-display text-xl text-champagne tabular-nums">

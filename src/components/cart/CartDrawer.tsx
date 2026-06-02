@@ -65,6 +65,7 @@ export function CartDrawer() {
                   <div className="mt-2 flex items-center justify-between">
                     <QuantityStepper
                       value={item.qty}
+                      max={item.stock}
                       onChange={(q) => updateQty(item.productId, item.size, q)}
                     />
                     <span className="text-sm tabular-nums text-paper">

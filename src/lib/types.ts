@@ -54,6 +54,8 @@ export interface CartItem {
   qty: number;
   /** Product photo for cart/checkout thumbnails; null/undefined → monogram tile. */
   imageUrl?: string | null;
+  /** Units available of this size at the time it was added (caps cart quantity). */
+  stock?: number;
 }
 
 export interface CartTotals {

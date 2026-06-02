@@ -131,21 +131,25 @@ export function parseProducts(csvText: string): ProductData {
     const inspiredBy = inspiredByMatch ? inspiredByMatch[1].trim() : null;
 
     const baseId = toSlug(brand, name);
-    const knownFragranticaUrl = FRAGRANTICA_URLS[baseId] ?? null;
 
-    // Fragrantica link precedence: sheet "Fragrantica URL" column > our curated
-    // page map > a Google site-search fallback.
+    // The real Fragrantica page URL: prefer a sheet "Fragrantica URL" column
+    // (so a newly-added row is self-service), then our curated page map.
     const fragranticaCell = cellByName(row, cols, 'fragrantica url');
-    const fragranticaUrl = /^https?:\/\//.test(fragranticaCell)
+    const realFragranticaUrl = /^https?:\/\//.test(fragranticaCell)
       ? fragranticaCell
-      : (knownFragranticaUrl ?? buildFragranticaUrl(brand, stripParenthetical(name)));
+      : (FRAGRANTICA_URLS[baseId] ?? null);
 
-    // Image precedence: sheet "Image" column > Fragrantica's CDN image > none.
+    // Link: the real page if we have one, else a Google site-search fallback.
+    const fragranticaUrl =
+      realFragranticaUrl ?? buildFragranticaUrl(brand, stripParenthetical(name));
+
+    // Image precedence: sheet "Image" column > the Fragrantica page's CDN image
+    // (works whether the URL came from the sheet or the curated map) > none.
     const imageCell = cellByName(row, cols, 'image');
     const imageUrl = /^https?:\/\//.test(imageCell)
       ? imageCell
-      : knownFragranticaUrl
-        ? fragranticaImageFromUrl(knownFragranticaUrl)
+      : realFragranticaUrl
+        ? fragranticaImageFromUrl(realFragranticaUrl)
         : null;
 
     let id = baseId;

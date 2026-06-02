@@ -73,10 +73,13 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
     if (!option) return;
     setItems((prev) => {
       const key = lineKey(product.id, size);
+      const cap = option.stock ?? 99;
       const existing = prev.find((i) => lineKey(i.productId, i.size) === key);
       if (existing) {
         return prev.map((i) =>
-          lineKey(i.productId, i.size) === key ? { ...i, qty: i.qty + qty } : i,
+          lineKey(i.productId, i.size) === key
+            ? { ...i, qty: Math.min(i.qty + qty, cap), stock: option.stock }
+            : i,
         );
       }
       return [
@@ -89,6 +92,7 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
           unitPrice: option.price,
           qty,
           imageUrl: product.imageUrl,
+          stock: option.stock,
         },
       ];
     });

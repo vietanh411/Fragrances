@@ -121,6 +121,17 @@ Test Brand,Test Scent,Unisex,Yes,"$4,00","$8,00",,,🔗 Link,https://cdn.example
     expect(out.products[0].imageUrl).toBe('https://cdn.example.com/a.jpg');
   });
 
+  it('derives both link and photo from a sheet "Fragrantica URL" column (new rows)', () => {
+    const csv = `── NICHE ──
+Brand,Name,Gender,Available?,2ml,5ml,10ml,30ml,Fragrantica URL
+New House,New Scent,Unisex,Yes,"$5,00",,,,https://www.fragrantica.com/perfume/New-House/New-Scent-99999.html`;
+    const out = parseProducts(csv);
+    expect(out.products[0].fragranticaUrl).toBe(
+      'https://www.fragrantica.com/perfume/New-House/New-Scent-99999.html',
+    );
+    expect(out.products[0].imageUrl).toBe('https://fimgs.net/mdimg/perfume/375x500.99999.jpg');
+  });
+
   it('respects Available? = No', () => {
     const soldOut = `── NICHE ──
 Brand,Name,Gender,Available?,2ml,5ml,10ml,30ml,Fragrantica
